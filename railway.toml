@@ -1,11 +1,11 @@
 [build]
-builder = "nixpacks"
+  builder = "nixpacks"
 
 [deploy]
-startCommand = "cd backend && gunicorn -w 4 -b 0.0.0.0:$PORT app:app"
+  startCommand = "cd backend && gunicorn -w 4 -b 0.0.0.0:$PORT app:app"
 
 [service]
-name = "mon-portfolio-backend"
-start = "gunicorn -w 4 -b 0.0.0.0:5001 app:app"
-build = "cd backend && pip install -r requirements.txt"
-envFile = "backend/.env"
+  name = "mon-portfolio-backend"
+  start = "gunicorn -w 4 -b 0.0.0.0:5001 app:app"
+  build = "cd backend && pip install -r requirements.txt"
+  envFile = "backend/.env"
