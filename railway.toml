@@ -7,3 +7,4 @@
 
 [env]
   PORT = "5001"
+  DATABASE_URL = "postgresql://postgres:cKlBdWhOQaQcMKJmGWubOnuPAWyAdblr@switchyard.proxy.rlwy.net:54807/railway"
