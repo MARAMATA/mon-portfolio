@@ -54,4 +54,6 @@ app.register_blueprint(contact_bp, url_prefix="/api/contact")
 app.register_blueprint(admin_bp, url_prefix="/api/admin")
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    import os
+    port = int(os.environ.get("PORT", 5001))  
+    app.run(host="0.0.0.0", port=port)
