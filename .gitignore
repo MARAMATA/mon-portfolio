@@ -1,4 +1,15 @@
+# Node.js & React
 node_modules/
 frontend/node_modules/
 build/
-.env
+
+# Python & Flask
+backend/.env
+venv/
+__pycache__/
+
+# IDE & OS files
+*.log
+*.DS_Store
+*.vscode/
+.idea/
