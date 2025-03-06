@@ -1,19 +1,18 @@
-# Utilisation de l'image officielle Python 3.10
-FROM python:3.10
+# Utilisation d'une image Python officielle
+FROM python:3.10-slim
 
-# Définir le répertoire de travail dans le conteneur
+# Définition du répertoire de travail
 WORKDIR /app
 
-# Copier uniquement les fichiers nécessaires
+# Copier le contenu du backend dans l'image
 COPY backend /app
 
-# Mettre à jour pip et installer les dépendances
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# Installer les dépendances
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# Exposer le port utilisé par Railway
-ENV PORT=5001
-EXPOSE $PORT
+# Exposer le port 5001 pour le service Flask
+EXPOSE 5001
 
-# Démarrer l'application avec Gunicorn
+# Démarrer l'application
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5001", "app:app"]
