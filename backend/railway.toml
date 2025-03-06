@@ -1,4 +1,5 @@
 [build]
+builder = "Nixpacks"
 command = "cd backend && pip install -r requirements.txt"
 
 [start]
