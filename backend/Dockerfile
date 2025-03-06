@@ -1,4 +1,4 @@
-# Utilisation d'une image Python officielle
+# Utilisation d'une image Python officielle optimisée
 FROM python:3.10-slim
 
 # Définition du répertoire de travail
