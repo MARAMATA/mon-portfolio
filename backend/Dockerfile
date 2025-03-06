@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
 # Exposer le port 5001 pour le service Flask
-EXPOSE 5001
+EXPOSE 5000
 
 # Démarrer l'application
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5001", "app:app"]
