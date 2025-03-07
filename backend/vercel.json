@@ -12,9 +12,10 @@
       }
     ],
     "functions": {
-      "app.py": {
+      "**/*.py": {
         "auth": false
       }
     }
   }
+  
   
