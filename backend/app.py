@@ -2,14 +2,17 @@ from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from config import Config
-from extensions import db, migrate  # Ajout de migrate
+from extensions import db
+from flask_migrate import Migrate  # Ajout de l'import
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Initialisation de SQLAlchemy et Flask-Migrate
+# Initialisation de SQLAlchemy
 db.init_app(app)
-migrate.init_app(app, db)  # Ajout de Flask-Migrate
+
+# Initialisation de Flask-Migrate
+migrate = Migrate(app, db)
 
 # Initialisation de JWT et configuration CORS explicite
 jwt = JWTManager(app)
@@ -54,4 +57,6 @@ app.register_blueprint(contact_bp, url_prefix="/api/contact")
 app.register_blueprint(admin_bp, url_prefix="/api/admin")
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True, port=5001)
