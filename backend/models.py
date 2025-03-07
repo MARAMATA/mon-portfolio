@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model):
     __tablename__ = 'user'
+    __table_args__ = {'schema': 'app'}  # Utilise le schéma 'app'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
@@ -16,6 +17,7 @@ class User(db.Model):
 
 class Project(db.Model):
     __tablename__ = 'project'
+    __table_args__ = {'schema': 'app'}  # Utilise le schéma 'app'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=False)
@@ -25,6 +27,7 @@ class Project(db.Model):
 
 class ContactMessage(db.Model):
     __tablename__ = 'contact_message'
+    __table_args__ = {'schema': 'app'}  # Utilise le schéma 'app'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(120), nullable=False)
