@@ -10,6 +10,11 @@
         "src": "/(.*)",
         "dest": "app.py"
       }
-    ]
+    ],
+    "functions": {
+      "app.py": {
+        "auth": false
+      }
+    }
   }
   
